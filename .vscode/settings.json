@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.hscript": "haxe",
+        "*.disabledlua": "lua",
+        "*._disabledlua_": "lua",
+        ".hxc": "haxe",
+        "*.json": "json",
+        "limits": "c",
+        "utility": "c",
+        "cstdlib": "c",
+        "windows.h": "c"
+    }
+}
