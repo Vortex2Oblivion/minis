@@ -5,6 +5,8 @@
     <img src="minis/sparkles.png" width="54"/>
     <img src="minis/subspace.png" width="54"/>
     <img src="minis/vinestaff.png" width="54"/>
+    <img src="minis/pbucket.png" width="54"/>
+    <img src="minis/skateboard.png" width="54"/>
     <img src="minis/firebrand.png" width="54"/>
     <img src="minis/sword.png" width="54"/>
     <img src="minis/katana.png" width="54"/>
@@ -17,6 +19,7 @@
     <img src="minis/boombox.png" width="54"/>
     <img src="minis/shuriken.png" width="54"/>
     <img src="minis/scythe.png" width="54"/>
+    <img src="minis/dollmaker.png" width="54"/>
     <img src="minis/medkit.png" width="54"/>
     <img src="minis/broker.png" width="54"/>
     <img src="minis/slingshit.png" width="54"/>

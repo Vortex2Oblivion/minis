@@ -2,28 +2,28 @@
 #include <stdlib.h>
 #include <time.h>
 
-int main(int argc, char * argv[])
+int main(int argc, char *argv[])
 {
-    SetTraceLogLevel(LOG_NONE);
+    //SetTraceLogLevel(LOG_NONE);
 
     SetConfigFlags(FLAG_WINDOW_TRANSPARENT);
     SetConfigFlags(FLAG_WINDOW_MOUSE_PASSTHROUGH);
     SetConfigFlags(FLAG_WINDOW_TOPMOST);
-    SetConfigFlags(FLAG_MSAA_4X_HINT);
     SetConfigFlags(FLAG_WINDOW_UNDECORATED);
-    
+
     InitWindow(GetScreenWidth(), GetScreenHeight(), "MINIS");
 
-    SetTargetFPS(10);
-
+    SetTargetFPS(15);
 
     SetWindowPosition(0, 30);
 
-    Texture minis[24] = {
+    Texture minis[27] = {
         LoadTexture("minis/sparkles.png"),
         LoadTexture("minis/subspace.png"),
         LoadTexture("minis/vinestaff.png"),
         LoadTexture("minis/firebrand.png"),
+        LoadTexture("minis/pbucket.png"),
+        LoadTexture("minis/skateboard.png"),
         LoadTexture("minis/sword.png"),
         LoadTexture("minis/katana.png"),
         LoadTexture("minis/coil.png"),
@@ -35,6 +35,7 @@ int main(int argc, char * argv[])
         LoadTexture("minis/boombox.png"),
         LoadTexture("minis/shuriken.png"),
         LoadTexture("minis/scythe.png"),
+        LoadTexture("minis/dollmaker.png"),
         LoadTexture("minis/medkit.png"),
         LoadTexture("minis/broker.png"),
         LoadTexture("minis/slingshit.png"),
@@ -43,14 +44,12 @@ int main(int argc, char * argv[])
         LoadTexture("minis/dom.png"),
         LoadTexture("minis/banhammer.png"),
         LoadTexture("minis/mxbot.png"),
-        LoadTexture("minis/zuka.png")
-    };
+        LoadTexture("minis/zuka.png")};
 
-    
     int minisLen = sizeof(minis) / sizeof(minis[0]);
-    
-    srand((unsigned int)time(NULL)); 
-    int index = rand()%(minisLen);
+
+    srand((unsigned int)time(NULL));
+    int index = rand() % (minisLen);
     Image icon = LoadImageFromTexture(minis[index]);
 
     SetWindowIcon(icon);
@@ -63,7 +62,7 @@ int main(int argc, char * argv[])
     {
         int oldWidth = minis[i].width;
         minis[i].height = minis[i].width = (int)((GetScreenWidth() / minisLen) * scale);
-        SetTextureFilter(minis[i], TEXTURE_FILTER_ANISOTROPIC_16X);
+        SetTextureFilter(minis[i], TEXTURE_FILTER_BILINEAR);
     }
     int miniOffset = 45;
     while (!WindowShouldClose())
@@ -72,13 +71,16 @@ int main(int argc, char * argv[])
         ClearBackground(BLANK);
         for (int i = 0; i < minisLen; i++)
         {
-            DrawTexture(minis[i], i * (int)(minis[i].width/scale), GetScreenHeight() - minis[i].height - miniOffset -30, WHITE);
+            DrawTexture(minis[i], i * (int)(minis[i].width / scale), GetScreenHeight() - minis[i].height - miniOffset - 30, WHITE);
         }
-        if(IsKeyPressed(KEY_F1)){
-            if(miniOffset == 45){
+        if (IsKeyPressed(KEY_F1))
+        {
+            if (miniOffset == 45)
+            {
                 miniOffset = 0;
             }
-            else{
+            else
+            {
                 miniOffset = 45;
             }
         }
